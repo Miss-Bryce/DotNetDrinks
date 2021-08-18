@@ -34,8 +34,16 @@
                     </a>
                 </td>
                 <td>
-                    @* ADD IMG HERE *@
-                </td>
+                    @if (item.Product.Image != null)
+                    {
+                    <a href="~/img/product-uploads/@item.Product.Image" rel="product">
+                         <img src="~/img/product-uploads/@item.Product.Image" alt="Product Image" class="thumb" /> </a>
+                        }
+                        else
+                        {
+                        <img src="~/img/product-uploads/placeholder.gif" alt="Placeholder Image" class="thumb" />
+                        }
+</td>
                 @* As a general rule, numbers are right-aligned when shown in a table *@
                 <td class="text-right">
                     @Html.DisplayFor(modelItem => item.Quantity)
