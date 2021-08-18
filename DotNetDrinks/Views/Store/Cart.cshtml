@@ -45,9 +45,11 @@
                         }
 </td>
                 @* As a general rule, numbers are right-aligned when shown in a table *@
-                <td class="text-right">
-                    @Html.DisplayFor(modelItem => item.Quantity)
-                </td>
+            <td class="text-right">
+                @Html.TextBoxFor(modelItem => item.Quantity)
+                <a asp-action="UpdateCart" asp-route-id="">Update</a>
+                
+            </td>
                 <td class="text-right">
                     @* use generic C format provider to format decimal to currency *@
                     @item.Price.ToString("C")
