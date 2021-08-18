@@ -115,6 +115,20 @@ namespace DotNetDrinks.Controllers
             return RedirectToAction("Cart");
         }
 
+        public IActionResult UpdateCart(int cartID, int quantity)
+        {
+            var cartId = _context.Carts.Where(c => c.Id == cartID).FirstOrDefault();
+            var cartQuantity = _context.Carts.Where(c => c.Quantity == quantity).FirstOrDefault();
+
+            if (cartId!= null)
+            {
+                _context.Carts.Update(cartQuantity);
+                _context.SaveChanges();
+            }
+
+            return RedirectToAction("Cart");
+        }
+
         [Authorize]
         public IActionResult Checkout()
         {

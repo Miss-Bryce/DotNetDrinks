@@ -47,7 +47,7 @@
                 @* As a general rule, numbers are right-aligned when shown in a table *@
             <td class="text-right">
                 @Html.TextBoxFor(modelItem => item.Quantity)
-                <a asp-action="UpdateCart" asp-route-id="">Update</a>
+                <a asp-action="UpdateCart" asp-route-id="@item.Id, @item.Quantity">Update</a>
                 
             </td>
                 <td class="text-right">
