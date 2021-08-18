@@ -17,8 +17,9 @@ namespace DotNetDrinksTests
         // connect to the DB?? create a mock object to simulate our db connection when testing
         // This is an In-Memory db context > Microsoft.EntityFrameworkCore.InMemory
         private ApplicationDbContext _context;
+
         // empty list of products
-        List<Product> products = new List<Product>();
+        readonly List<Product> products = new();
         // declare the controller that will be tested
         ProductsController controller;
 

@@ -66,6 +66,20 @@ namespace DotNetDrinks.Controllers
             return View(order);
         }
 
+        public IActionResult SalesReport()
+        {
+            // Admins should be able to se everything
+            if (User.IsInRole("Administrator"))
+            {
+                return View("SalesReport");
+            }
+            // Customers must only see their own orders
+            else
+            {
+                return NotFound();
+            }
+        }
+
         private bool OrderExists(int id)
         {
             return _context.Orders.Any(e => e.Id == id);
